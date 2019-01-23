@@ -78,6 +78,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: twitter_development
+  pool: 5
+  username: varun
+  password: ""
+  host: localhost
 production:
   <<: *default
   database: twitter_production

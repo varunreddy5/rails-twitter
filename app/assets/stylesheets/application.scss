@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import 'bootstrap';
+ @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+
+ body{
+   font-family: 'Source Sans Pro', sans-serif;
+ }

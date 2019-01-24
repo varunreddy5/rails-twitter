@@ -18,4 +18,20 @@
 
  body{
    font-family: 'Source Sans Pro', sans-serif;
+   background-color: rgba(212, 216, 212, 0.25);
+ }
+ .navbar{
+   background-color: white;
+   .navbar-logo{
+     position: absolute;
+     left: 50%;
+   }
+ }
+ #tweet{
+   background-color: #1da1f2;
+   padding: 0.3em 1.2em;
+   border-radius: 1em;
+   text-decoration: none;
+   color: white;
+   margin-top: 3px;
  }

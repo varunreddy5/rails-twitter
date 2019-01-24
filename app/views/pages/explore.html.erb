@@ -1,2 +1,33 @@
-<h1>Pages#explore</h1>
-<p>Find me in app/views/pages/explore.html.erb</p>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        Stats
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <div class="card-body">
+        Trends
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <% @posts.each do |post| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <%= post.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        About
+      </div>
+    </div>
+  </div>
+</div>

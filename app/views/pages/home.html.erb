@@ -5,14 +5,22 @@
         Stats
       </div>
     </div>
+
+    <div class="card mt-3">
+      <div class="card-body">
+        Trends
+      </div>
+    </div>
   </div>
 
   <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        Feed
+    <% @posts.each do |post| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <%= post.content %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <div class="col-sm-3">
@@ -27,11 +35,7 @@
 
 <div class="row mt-3">
   <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        Trends
-      </div>
-    </div>
+
   </div>
 
 </div>

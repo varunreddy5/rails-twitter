@@ -1,41 +1,88 @@
-<div class="row">
-  <div class="col-sm-12">
-    <div class="jumbotron">
-      Header
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        Profile
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <div class="jumbotron">
+        Header
       </div>
     </div>
   </div>
-
-  <div class="col-sm-6">
-    <%= render 'pages/form' %>
-    <% @posts.each do |post| %>
+  <div class="row">
+    <div class="col-sm-3">
       <div class="card">
-        <div class="card-body">
-          <%= post.content %>
+        <div class="card-body" style="padding: 0.2rem;">
+          <div class="row mt-3">
+            <div class="col-md-4 text-center">
+              <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+            </div>
+            <div class="col-md-8 no-padding mt-2">
+              <p><b><%= current_user.username %></b></p>
+            </div>
+
+          </div>
+          <div class="row my-3">
+            <div class="col-md-4 text-center">
+              <p class="follow-heading">Tweets</p>
+              <p class="follow-count"><%= current_user.posts.count %></p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="follow-heading">Followers</p>
+              <p class="follow-count"><%= current_user.followers.count %></p>
+            </div>
+            <div class="col-md-4 text-center">
+              <p class="follow-heading">Following</p>
+              <p class="follow-count"><%= current_user.following.count %></p>
+            </div>
+          </div>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        Whom to follow
+    <div class="col-sm-6">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+            </div>
+            <div class="col-md-10 no-padding">
+              <%= render 'pages/form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% @posts.each do |post| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+              </div>
+              <div class="col-md-10 text-left no-padding">
+                <p class="post-title"><span class="post-username"><%= User.find(post.user_id).username %></span><span class="post-date"><%= post.created_at.to_formatted_s(:short) %></span></b></p>
+                <p class="post-content"><%= post.content %></p>
+              </div>
+              <div class="col-md-10 offset-md-2 no-padding mt-2">
+                <span class="far fa-heart"></span>
+                <span class="far fa-comment"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          Whom to follow
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          Trends
+        </div>
       </div>
     </div>
-    <div class="card mt-3">
-      <div class="card-body">
-        Trends
-      </div>
-    </div>
-  </div>
 
+  </div>
 </div>

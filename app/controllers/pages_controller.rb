@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @posts = Post.all
+    @posts = Post.order("created_at desc")
+    @newPost = Post.new
   end
 
   def profile

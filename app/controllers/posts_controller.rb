@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      render "/profile"
+      redirect_to root_path
     end
   end
 

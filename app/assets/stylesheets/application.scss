@@ -27,6 +27,9 @@
      left: 50%;
    }
  }
+ .btn-add-post{
+   float: right;
+ }
  #tweet{
    background-color: #1da1f2;
    padding: 0.3em 1.2em;
@@ -34,4 +37,37 @@
    text-decoration: none;
    color: white;
    margin-top: 3px;
+ }
+ .no-padding{
+   padding-left: 0 !important;
+ }
+ .post-title,
+ .post-content,
+ .follow-count,
+ .follow-heading{
+   margin-bottom: 2px;
+ }
+ .post-username{
+   font-weight: bold;
+ }
+ .post-date{
+   opacity: 0.6;
+   margin-left: 1em;
+ }
+ .fa-heart{
+   color: #657786;
+ }
+ .fa-comment{
+   margin-left: 4em;
+   color: #657786;
+ }
+
+ .follow-heading{
+   font-size: 0.85em;
+   color: #657786;
+ }
+ .follow-count{
+   font-size: 1.2em;
+   font-weight: bold;
+   color: #1da1f2;
  }

@@ -19,7 +19,13 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-2">
-              <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+              <% if current_user.avatar.attached? %>
+
+                <%= image_tag current_user.avatar.variant(resize: "50x50!"), class: "rounded-circle" %>
+              <% else %>
+                <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+              <% end %>
+              <!-- <img src="/bg.jpg" height="50" width="50" class="rounded-circle"> -->
             </div>
             <div class="col-md-10 no-padding">
               <%= render 'pages/form' %>
@@ -32,7 +38,11 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-2">
-                <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+                <% if post.user.avatar.attached? %>
+                  <%= image_tag post.user.avatar.variant(resize: "50x50!"), class: "rounded-circle" %>
+                <% else %>
+                  <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+                <% end %>
               </div>
               <div class="col-md-10 text-left no-padding">
                 <p class="post-title"><span class="post-username"><%= User.find(post.user_id).username %></span><span class="post-date"><%= post.created_at.to_formatted_s(:short) %></span></b></p>

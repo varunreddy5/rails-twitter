@@ -43,11 +43,13 @@
  }
  .post-title,
  .post-content,
- .follow-count,
+ .stat,
  .follow-heading{
    margin-bottom: 2px;
  }
  .post-username{
+   text-decoration: none;
+   color: #000;
    font-weight: bold;
  }
  .post-date{
@@ -66,7 +68,7 @@
    font-size: 0.85em;
    color: #657786;
  }
- .follow-count{
+ .stat{
    font-size: 1.2em;
    font-weight: bold;
    color: #1da1f2;

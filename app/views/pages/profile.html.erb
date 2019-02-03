@@ -19,14 +19,14 @@
         </div>
       </div>
     </div>
-
+    <%= render('pages/follow_form') %>
     <div class="col-sm-6">
       <% if @user.username == current_user.username %>
         <div class="card mb-3">
           <div class="card-body">
             <div class="row">
               <div class="col-md-2">
-                <% if current_user.avatar.attached? %>
+                <% if @user.avatar.attached? %>
                   <%= image_tag @user.avatar.variant(resize: "50x50!"), class: "rounded-circle" %>
                 <% else %>
                   <img src="/bg.jpg" height="50" width="50" class="rounded-circle">

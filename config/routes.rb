@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
   get '/home' => 'pages#home'
-  get '/user/:id' => 'pages#profile'
+  get '/user/:id' => 'pages#profile', as: "user_profile"
   get '/explore' => 'pages#explore'
 
   resources :users do

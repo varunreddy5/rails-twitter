@@ -1,0 +1,3 @@
+$("#all-posts").prepend("<%= j render partial: 'post', locals: { post: @post} %>");
+$("#new_post").trigger("reset");
+$("#posts-count").html("<%= @user.posts.count %>");

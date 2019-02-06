@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       redirect_to root_path, notice: "User not Found."
     end
 
-    @posts = Post.all.where("user_id = ?", User.find_by_username(params[:id]))
+    @posts = Post.all.where("user_id = ?", User.find_by_username(params[:id])).order("created_at desc")
     @newPost = Post.new
   end
 

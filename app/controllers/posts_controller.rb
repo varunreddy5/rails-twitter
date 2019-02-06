@@ -1,13 +1,17 @@
 class PostsController < ApplicationController
-  
+
   def new
     @post = current_user.posts.build
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    @user = current_user
     if @post.save
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path}
+        format.js
+      end
     else
       redirect_to root_path
     end

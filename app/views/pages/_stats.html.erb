@@ -1,17 +1,20 @@
 <% @user ||= current_user %>
-<div class="col-md-4 text-center">
+<div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
     <p class="follow-heading">Tweets</p>
     <p class="stat" id="posts-count"><%= @user.posts.count %></p>
 </div>
-<div class="col-md-4 text-center">
+<div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
   <a href="<%= following_user_path(@user) %>">
     <p class="follow-heading">Followers</p>
     <p class="stat" id="followers"><%= @user.followers.count %></p>
   </a>
 </div>
-<div class="col-md-4 text-center">
+<div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
   <a href="<%= following_user_path(@user) %>">
     <p class="follow-heading">Following</p>
     <p class="stat" id="following"><%= @user.following.count %></p>
   </a>
+</div>
+<div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
+  <%= render('pages/follow_form') %>
 </div>

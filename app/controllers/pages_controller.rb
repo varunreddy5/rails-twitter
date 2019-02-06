@@ -8,6 +8,8 @@ class PagesController < ApplicationController
     @user = User.find_by_username(params[:id])
   end
 
+  
+
   def profile
     @user = User.find_by_username(params[:id])
     if User.find_by_username(params[:id])

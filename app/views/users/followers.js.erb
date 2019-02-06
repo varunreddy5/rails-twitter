@@ -1,0 +1,4 @@
+$("#common-modal .modal-title").html("Followers");
+$("#common-modal .modal-body").html(" <%= j render partial: 'users/follower', collection: @followers, as: :user %> ");
+window.history.pushState(null, '', '<%= followers_user_path(@user.username) %>');
+$("#common-modal").modal("show");

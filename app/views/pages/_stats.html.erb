@@ -4,15 +4,15 @@
     <p class="stat" id="posts-count"><%= @user.posts.count %></p>
 </div>
 <div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
-  <a href="<%= following_user_path(@user) %>">
+
     <p class="follow-heading">Followers</p>
-    <p class="stat" id="followers"><%= @user.followers.count %></p>
-  </a>
+    <%= link_to @user.followers.count, followers_user_path(id: @user.username),class: "stat", id: "followers", remote: true %>
+
 </div>
 <div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
   <a href="<%= following_user_path(@user) %>">
     <p class="follow-heading">Following</p>
-    <p class="stat" id="following"><%= @user.following.count %></p>
+    <%= link_to @user.following.count, following_user_path(id: @user.username),class: "stat", id: "following", remote: true %>
   </a>
 </div>
 <div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">

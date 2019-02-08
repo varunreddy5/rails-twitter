@@ -1,0 +1,7 @@
+$("#common-modal .modal-header").remove();
+$("#common-modal .modal-body").html(" <%= j render partial: 'post', locals: { post: @post} %> ");
+$("#common-modal .modal-body").append(" <%= j render partial: 'comments/form', locals: {commentable: @post } %>")
+$("#common-modal .modal-body").append(" <%= j render partial: 'comments/comment', locals: {commentable: @post } %>")
+$(".card.post-card").css({ 'border': 'none' });
+window.history.pushState(null, '', '<%= post_comment_path(@post) %>');
+$("#common-modal").modal("show");

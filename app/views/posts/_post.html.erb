@@ -10,12 +10,9 @@
       </div>
       <div class="col-md-10 text-left no-padding">
         <p class="post-title"><a href="/user/<%= User.find(post.user_id).username %>" class="post-username"><%= User.find(post.user_id).username %></a><span class="post-date"><%= post.created_at.to_formatted_s(:short) %></span></b></p>
-        <p class="post-content"><%= post.content %></p>
+        <%= link_to post.content, post_path(post), class: "post-content", id: "post-content", remote: true %>
       </div>
-      <div class="col-md-10 offset-md-2 no-padding mt-2">
-        <span class="far fa-heart"></span>
-        <span class="far fa-comment"></span>
-      </div>
+      <%= render 'posts/actions' %>
     </div>
   </div>
 </div>

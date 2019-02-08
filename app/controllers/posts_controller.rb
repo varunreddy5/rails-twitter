@@ -17,6 +17,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
 
       #   f.html { redirect_to: root_path, notice: "Post created successfully!" }
       # else

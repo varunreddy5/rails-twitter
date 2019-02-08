@@ -1,0 +1,12 @@
+<hr>
+<h5>Comments</h5>
+<% commentable.comments.each do |comment| %>
+<div class="card bg-light">
+  <div class="card-body">
+      <%= comment.body %>
+      <%= render 'posts/actions' %>
+  </div>
+
+</div>
+
+<% end %>

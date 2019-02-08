@@ -1,12 +1,21 @@
-<hr>
-<h5>Comments</h5>
-<% commentable.comments.each do |comment| %>
-<div class="card bg-light">
-  <div class="card-body">
-      <%= comment.body %>
-      <%= render 'posts/actions' %>
-  </div>
-
-</div>
-
+<% if comment.user_id %>
+    <div class="card mb-3 comment-card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+              <% if User.find(comment.user_id).avatar.attached? %>
+                <%= image_tag User.find(comment.user_id).avatar.variant(resize: "50x50!"), class: "rounded-circle" %>
+              <% else %>
+                <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+              <% end %>
+          </div>
+          <div class="col-md-10 text-left no-padding">
+            <p class="post-title"><b><%= User.find(comment.user_id).username %></b><span class="post-date"><%= comment.created_at.to_formatted_s(:short) %></span></p>
+            <p class="post-title"><%= comment.body %></p>
+          </div>
+          <%= render 'posts/actions' %>
+        </div>
+      </div>
+    </div>
+  <hr>
 <% end %>

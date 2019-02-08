@@ -1,6 +1,6 @@
-<%= form_for [commentable, Comment.new] do |f| %>
+<%= form_for [commentable, Comment.new],remote: true do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "Add a Comment" %>
-    <%= f.submit "Reply", class: "btn btn-primary"%>
+    <%= f.text_area :body, class: "form-control", required: true, placeholder: "Add a Comment" %>
+    <%= f.submit "Reply", class: "btn btn-primary mt-3"%>
   </div>
 <% end %>

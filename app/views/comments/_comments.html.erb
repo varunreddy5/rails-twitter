@@ -1,0 +1,5 @@
+<h5>Comments</h5>
+<%= render partial: 'comments/form', locals: {commentable: commentable } %>
+<div id = "post-comments-<%= commentable.id %>">
+  <%= render commentable.comments %>
+</div>

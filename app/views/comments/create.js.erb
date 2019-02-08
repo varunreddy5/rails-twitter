@@ -1,0 +1,1 @@
+$("#post-comments-<%= @commentable.id %>").prepend(" <%= j render partial: 'comments/comment', locals: { comment: @comment } %>");

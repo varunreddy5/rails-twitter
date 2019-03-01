@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, module: :posts
   end
+
+  resources :posts do
+    resources :likes do
+
+      member do
+        get :delete
+      end
+    end
+  end
+
   devise_for :users
   root 'pages#index'
   get '/home' => 'pages#home'

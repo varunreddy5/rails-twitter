@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
-
+  before_action :set_user, only: [:create, :destroy]
   def new
     @post = current_user.posts.build
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    @user = current_user
     if @post.save
       respond_to do |format|
         format.html { redirect_to root_path}
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
       format.js
     end
   end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
@@ -42,5 +42,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:content, :user_id)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @posts = Post.where(user_id: [current_user.following, current_user]).order("created_at desc")
     @newPost = Post.new
     @user = User.find_by_username(params[:id])
+    
   end
 
 

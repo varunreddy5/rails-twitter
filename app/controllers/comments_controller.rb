@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      redirect_to "/home"
+      redirect_to root_path
     end
   end
 

@@ -23,6 +23,10 @@ class User < ApplicationRecord
      user == current_user
   end
 
+  def likes?(post)
+    post.likes.where(user_id: id).any?
+  end
+
   # def following?(other_user)
   #   following.include? (other_user)
   # end

@@ -14,7 +14,7 @@
         <%= link_to post.content, post_path(post), class: "post-content", id: "post-content", remote: true %>
       </div>
       <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "delete_pony" %>
-      <div id="likes">
+      <div id="post_<%= post.id %>_likes">
         <%= render partial: "likes/like", locals: {likeable: post} %>
       </div>
     </div>

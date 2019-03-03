@@ -1,6 +1,8 @@
+<% pre_like = likeable.likes.find { |like| like.user_id == current_user.id} %>
 <% if user_signed_in? && current_user.likes?(likeable) %>
-  <%= link_to "Unlike", post_likes_path(likeable), method: :delete %>
+  <%= likeable.likes.count %>
+  <%= link_to "Unlike", post_like_path(likeable, pre_like), method: :delete, remote: true %>
 <% else %>
   <%= likeable.likes.count %>
-  <%= link_to "Like", post_likes_path(likeable), method: :post %>
+  <%= link_to "Like", post_likes_path(likeable), method: :post, remote: true %>
 <% end %>

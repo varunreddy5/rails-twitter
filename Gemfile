@@ -36,6 +36,7 @@ gem 'rails_12factor', group: :production
 gem 'devise', '~> 4.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3' #added by me
 gem 'bootstrap', '~> 4.2', '>= 4.2.1' #added by me
+gem "aws-sdk-s3", require: false
 gem 'mini_magick', '~> 4.9', '>= 4.9.2' #added by me
 
 # Reduces boot times through caching; required in config/boot.rb

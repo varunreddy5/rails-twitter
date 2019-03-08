@@ -57,7 +57,7 @@
             <% @users.each do |u| %>
               <div class="col-md-6 mt-2">
                 <% if u != current_user %>
-                  <%= u.username %>
+                  <p class="post-title"><a href="/user/<%= u.username %>" class="post-username"><%= u.username %></a></p>
                 <% end %>
               </div>
               <div class="col-md-6 mt-2">

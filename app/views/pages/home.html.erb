@@ -50,7 +50,22 @@
     <div class="col-sm-3">
       <div class="card">
         <div class="card-body">
-          About
+          <h5>People you may know</h5>
+          <hr>
+          <div class="row">
+
+            <% @users.each do |u| %>
+              <div class="col-md-6 mt-2">
+                <% if u != current_user %>
+                  <%= u.username %>
+                <% end %>
+              </div>
+              <div class="col-md-6 mt-2">
+                  <% @user = u || current_user %>
+                  <%= render "pages/follow_form" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

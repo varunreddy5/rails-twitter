@@ -1,5 +1,5 @@
 <% if @user.id != current_user.id %>
-  <div id="follow-form">
+  <div id="follow-form-<%= @user.id %>">
     <% if current_user.following.include?(@user) %>
       <%= render('pages/unfollow') %>
     <% else %>

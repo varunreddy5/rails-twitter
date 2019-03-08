@@ -13,11 +13,13 @@
         <p class="post-title"><a href="/user/<%= User.find(post.user_id).username %>" class="post-username"><%= User.find(post.user_id).username %></a><span class="post-date"><%= post.created_at.to_formatted_s(:short) %></span></p>
         <%= link_to post.content, post_path(post), class: "post-content", id: "post-content", remote: true %>
       </div>
-      <div class="col-md-1">
-        <%= link_to post_path(post), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "delete_pony" do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
-      </div>
+      <% if post.user_id == current_user.id %>
+        <div class="col-md-1">
+          <%= link_to post_path(post), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "delete_pony" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="row mt-2">
       <div class="post_<%= post.id %>_likes col-md-2 offset-md-2">

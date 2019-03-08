@@ -10,8 +10,8 @@
 
 </div>
 <div class="<%= current_user == @user ? 'col-md-4' : 'col-md-3' %> text-center">
+  <p class="follow-heading">Following</p>
   <a href="<%= following_user_path(@user) %>">
-    <p class="follow-heading">Following</p>
     <%= link_to @user.following.count, following_user_path(id: @user.username),class: "stat", id: "following", remote: true %>
   </a>
 </div>

@@ -13,7 +13,6 @@
             <p class="post-title"><b><%= User.find(comment.user_id).username %></b><span class="post-date"><%= comment.created_at.to_formatted_s(:short) %></span></p>
             <p class="post-title"><%= comment.body %></p>
           </div>
-          <%= render 'posts/actions' %>
         </div>
       </div>
     </div>

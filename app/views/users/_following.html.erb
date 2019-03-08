@@ -1,1 +1,12 @@
-<h3><%= user.username %></h3>
+<div class="row user-modal">
+  <div class="col-md-2 user-modal-image">
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar.variant(resize: "50x50!"), class: "rounded-circle" %>
+    <% else %>
+      <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
+    <% end %>
+  </div>
+  <div class="col-md-2 user-modal-username no-padding">
+    <a href="/user/<%= user.username %>" class="post-username"><%= user.username %></a>
+  </div>
+</div>

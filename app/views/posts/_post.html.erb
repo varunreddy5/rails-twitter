@@ -9,13 +9,24 @@
           <img src="/bg.jpg" height="50" width="50" class="rounded-circle">
         <% end %>
       </div>
-      <div class="col-md-10 text-left no-padding">
+      <div class="col-md-9 text-left no-padding">
         <p class="post-title"><a href="/user/<%= User.find(post.user_id).username %>" class="post-username"><%= User.find(post.user_id).username %></a><span class="post-date"><%= post.created_at.to_formatted_s(:short) %></span></p>
         <%= link_to post.content, post_path(post), class: "post-content", id: "post-content", remote: true %>
       </div>
-      <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "delete_pony" %>
-      <div id="post_<%= post.id %>_likes">
+      <div class="col-md-1">
+        <%= link_to post_path(post), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: "delete_pony" do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="post_<%= post.id %>_likes col-md-2 offset-md-2">
         <%= render partial: "likes/like", locals: {likeable: post} %>
+      </div>
+      <div class="col-md-1" id="comment">
+        <%= link_to post_path(post), class: "post-content", id: "post-content", remote: true do %>
+          <i class="far fa-comment"></i>
+        <% end %>
       </div>
     </div>
   </div>
